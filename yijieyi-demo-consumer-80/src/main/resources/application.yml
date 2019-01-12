@@ -1,0 +1,31 @@
+
+server:
+  port: 80
+  context-path: /
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 9000
+  
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+            
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka2001.marry.com:2001/eureka/,http://eureka2002.marry.com:2002/eureka/
+
+spring:
+  application:
+    name: consumer80
+
+  
